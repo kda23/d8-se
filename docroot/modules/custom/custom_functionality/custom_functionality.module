@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains custom_functionality.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function custom_functionality_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the custom_functionality module.
+    case 'help.page.custom_functionality':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Custom functionality for different purpose') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function custom_functionality_theme() {
+  return [
+    'custom_functionality' => [
+      'render element' => 'children',
+    ],
+  ];
+}
